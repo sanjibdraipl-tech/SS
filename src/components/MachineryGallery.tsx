@@ -1,15 +1,17 @@
 import { useState } from 'react';
-import { HardHat, Layers, Maximize2, X, ChevronRight, Wrench, Fuel, ShieldAlert, Cpu } from 'lucide-react';
+import { HardHat, Layers, Maximize2, X, ChevronRight, Wrench, Fuel, ShieldAlert, Cpu, Anchor, ArrowUpRight } from 'lucide-react';
 
 import asphaltPlantImg from '../assets/images/asphalt_plant_crusher_1787591776500.jpg';
 import sensorPaverImg from '../assets/images/sensor_paver_highway_1787591801791.jpg';
 import heavyMachinerySiteImg from '../assets/images/heavy_machinery_site_1787591750083.jpg';
 import metroPilingRigImg from '../assets/images/metro_piling_rig_1787591815147.jpg';
+import girderLaunchingBridgeImg from '../assets/images/girder_launching_bridge_1789753312291.jpg';
+import bridgeStressingWorkImg from '../assets/images/bridge_stressing_work_1789753332231.jpg';
 
 interface MachineryItem {
   id: string;
   title: string;
-  category: 'Asphalt & Plant' | 'Paving & Road' | 'Earthmoving & Fleet' | 'Piling & Metro';
+  category: 'Bridge & Flyover Girders' | 'Asphalt & Plant' | 'Paving & Road' | 'Earthmoving & Fleet' | 'Piling & Metro';
   image: string;
   alt: string;
   capacity: string;
@@ -23,6 +25,38 @@ export default function MachineryGallery() {
   const [activeImageModal, setActiveImageModal] = useState<MachineryItem | null>(null);
 
   const machineryItems: MachineryItem[] = [
+    {
+      id: 'bridge-girder-launching',
+      title: 'Bridge & Flyover Launching Girder Erection, I-Girder & U-Girder Placement',
+      category: 'Bridge & Flyover Girders',
+      image: girderLaunchingBridgeImg,
+      alt: 'Bridge and Flyover Project Launching Girder Erection with heavy crawler cranes placing I-Girder and U-Girder on Pier Caps in India',
+      capacity: '150T Launching Gantry & Tandem Crane Lifts',
+      location: 'River Bridges & Elevated Flyovers, India',
+      description: 'Turnkey operational governance and mechanical safety for steel launching gantry erection, heavy tandem crawler crane lifts for precast I-girders and U-girders (30m–45m spans), bearing pedestal alignment, and span load testing.',
+      specs: [
+        'Segmental launching gantry truss assembly',
+        'Dual tandem crawler crane lifting coordination',
+        'Precast I-girder & U-girder seating & stability',
+        'Neoprene & POT-PTFE bearing pedestal placement',
+      ],
+    },
+    {
+      id: 'bridge-post-tensioning-stressing',
+      title: 'Post-Tensioning Stress Work & Tendon Grouting on Bridge Girders',
+      category: 'Bridge & Flyover Girders',
+      image: bridgeStressingWorkImg,
+      alt: 'Post-Tensioning Hydraulic Stress Work with multi-strand jacks on precast concrete bridge I-girders and box girders',
+      capacity: '500T Hydraulic Multi-Strand Jacks',
+      location: 'Major Flyover & Marine Viaduct Projects',
+      description: 'High-precision post-tensioning stress work for prestressed concrete (PSC) I-girders, U-girders, and segmental box girders. Calibration of hydraulic power packs, multi-strand jacks, tendon elongation verification, and high-pressure cementitious grouting.',
+      specs: [
+        'Multi-strand hydraulic stressing jack calibration',
+        'Tendon elongation vs hydraulic gauge monitoring',
+        'High-pressure colloidal grout injection protocol',
+        'Zero-deviation MoRTH & IRC tolerance compliance',
+      ],
+    },
     {
       id: 'asphalt-batch-plant',
       title: '160 TPH Asphalt Batch Mix Plant & Secondary Stone Crusher',
@@ -69,7 +103,7 @@ export default function MachineryGallery() {
     },
   ];
 
-  const categories = ['All', 'Asphalt & Plant', 'Paving & Road', 'Earthmoving & Fleet', 'Piling & Metro'];
+  const categories = ['All', 'Bridge & Flyover Girders', 'Asphalt & Plant', 'Paving & Road', 'Earthmoving & Fleet', 'Piling & Metro'];
 
   const filteredItems = selectedCategory === 'All'
     ? machineryItems
@@ -79,19 +113,35 @@ export default function MachineryGallery() {
     <section id="machinery" className="py-16 md:py-24 bg-white relative border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-50 text-amber-900 border border-amber-200 text-xs font-bold uppercase tracking-wider mb-2">
-              <HardHat className="w-3.5 h-3.5 text-amber-700" />
-              <span>Heavy Infrastructure Plant &amp; Fleet</span>
+        {/* Section Header (Selected Target Element) */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#1267D3] border border-blue-200/80 text-xs font-bold uppercase tracking-wider mb-3">
+              <HardHat className="w-3.5 h-3.5 text-[#1267D3]" />
+              <span>Bridge Launching, Heavy Plant &amp; Fleet Operations</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight font-english">
               Heavy Machinery &amp; Plant Operations Gallery
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 max-w-2xl mt-2">
-              Real-world execution photos of Asphalt Batch Mix Plants, Electronic Sensor Pavers, Heavy Excavators, and Piling Rigs governed under 26+ years of P&amp;M leadership.
+            <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
+              Real-world execution photos of <strong className="text-slate-900 font-semibold">Bridge &amp; Flyover Launching Girder Erection</strong>, <strong className="text-slate-900 font-semibold">Post-Tensioning Stress Work</strong>, <strong className="text-slate-900 font-semibold">I-Girder &amp; U-Girder Tandem Crane Placement</strong>, 160 TPH Asphalt Plants, Sensor Pavers, and Piling Rigs governed under 26+ years of P&amp;M leadership.
             </p>
+
+            {/* Quick Domain Highlights Chips */}
+            <div className="flex flex-wrap gap-1.5 mt-3.5">
+              <span className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-[11px] font-semibold border border-slate-200 flex items-center gap-1">
+                <Anchor className="w-3 h-3 text-[#1267D3]" />
+                <span>Launching Girder &amp; Gantry Erection</span>
+              </span>
+              <span className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-[11px] font-semibold border border-slate-200 flex items-center gap-1">
+                <Wrench className="w-3 h-3 text-amber-600" />
+                <span>Post-Tensioning Hydraulic Stress Work</span>
+              </span>
+              <span className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-[11px] font-semibold border border-slate-200 flex items-center gap-1">
+                <Layers className="w-3 h-3 text-emerald-600" />
+                <span>I &amp; U-Girder Tandem Crane Lifts</span>
+              </span>
+            </div>
           </div>
 
           {/* Category Filter Pills */}

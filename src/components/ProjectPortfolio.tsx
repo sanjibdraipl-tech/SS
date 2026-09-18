@@ -7,6 +7,7 @@ import { CheckCircle2, X, Wrench, ShieldCheck, Tag, ExternalLink, Image as Image
 import asphaltPlantImg from '../assets/images/asphalt_plant_crusher_1787591776500.jpg';
 import sensorPaverImg from '../assets/images/sensor_paver_highway_1787591801791.jpg';
 import heavyMachinerySiteImg from '../assets/images/heavy_machinery_site_1787591750083.jpg';
+import riverBridgeIndiaImg from '../assets/images/river_bridge_india_1789752836752.jpg';
 import metroPilingRigImg from '../assets/images/metro_piling_rig_1787591815147.jpg';
 import pmDashboardImg from '../assets/images/pm_digitalization_dash_1787591762917.jpg';
 import webDesignImg from '../assets/images/web_design_showcase_1787592981215.jpg';
@@ -28,7 +29,7 @@ export default function ProjectPortfolio() {
       case 'Metro':
         return metroPilingRigImg;
       case 'Bridge':
-        return heavyMachinerySiteImg;
+        return riverBridgeIndiaImg;
       case 'Plant':
         return asphaltPlantImg;
       case 'Digitalization':
@@ -122,7 +123,14 @@ export default function ProjectPortfolio() {
 
                 <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-1 group-hover:text-[#1267D3] transition-colors leading-tight font-english">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      {project.id === 'proj-3' && (
+                        <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/10 text-amber-700 border border-amber-300/60 uppercase tracking-wider">
+                          India River Crossing Fleet
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="text-lg font-bold text-slate-900 mb-1.5 group-hover:text-[#1267D3] transition-colors leading-snug font-english">
                       {project.name}
                     </h3>
                     <p className="text-xs font-semibold text-[#1267D3] mb-4">
@@ -188,6 +196,20 @@ export default function ProjectPortfolio() {
                 <span className="text-xs text-slate-500 font-medium">
                   {selectedProject.duration}
                 </span>
+              </div>
+
+              {/* Project Image Banner in Modal */}
+              <div className="relative aspect-video rounded-2xl overflow-hidden mb-5 border border-slate-200 bg-slate-900 shadow-sm">
+                <img
+                  src={getProjectImage(selectedProject.category, selectedProject.id)}
+                  alt={`${selectedProject.name} - ${selectedProject.equipmentPlant}`}
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute bottom-2.5 left-2.5 right-2.5 px-3 py-1.5 rounded-xl bg-slate-900/85 backdrop-blur-md text-[11px] text-slate-200 border border-white/10 flex items-center justify-between">
+                  <span className="truncate pr-2">{selectedProject.name}</span>
+                  <span className="font-semibold text-amber-300 shrink-0">{selectedProject.location || 'India'}</span>
+                </div>
               </div>
 
               <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-tight mb-2">

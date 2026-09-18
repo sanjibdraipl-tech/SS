@@ -1,18 +1,17 @@
 import { motion } from 'motion/react';
-import { PhoneCall, ShieldCheck, ArrowRight, Award, MessageCircle, FileText, CheckCircle2, ChevronRight, Activity, Cpu, Sparkles } from 'lucide-react';
+import { ShieldCheck, Cpu, MessageCircle } from 'lucide-react';
 import { CONTACT_INFO, HERO_TRUST_ITEMS } from '../data/portfolioData';
 
 // Generated Profile and Site Assets
-import heavyMachineryHero from '../assets/images/heavy_machinery_site_1787591750083.jpg';
 import EngineeringLogo from './EngineeringLogo';
 
 interface HeroProps {
-  onOpenCvModal: () => void;
+  onOpenCvModal?: () => void;
   userPhoto?: string;
   onPhotoUpload?: (newPhotoUrl: string) => void;
 }
 
-export default function Hero({ onOpenCvModal }: HeroProps) {
+export default function Hero({}: HeroProps) {
 
   return (
     <section id="home" className="relative bg-gradient-to-b from-slate-900 via-slate-900 to-[#0B132B] text-white pt-8 pb-16 md:pt-14 md:pb-24 border-b border-slate-800 overflow-hidden">
@@ -34,7 +33,7 @@ export default function Hero({ onOpenCvModal }: HeroProps) {
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 text-blue-300 text-xs font-semibold border border-blue-400/20 backdrop-blur-md shadow-xs">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Available for Senior P&amp;M Roles, Advisory &amp; Digital Media</span>
+            <span>Available for Senior P&amp;M Roles &amp; Advisory</span>
           </div>
 
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 text-amber-300 text-xs font-semibold border border-amber-400/20">
@@ -44,85 +43,51 @@ export default function Hero({ onOpenCvModal }: HeroProps) {
         </motion.div>
 
         {/* Main Hero Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Left Column: Core Positioning */}
+          {/* Left Column: Core Positioning (Selected Target Container) */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-7 flex flex-col items-start"
+            className="lg:col-span-7 flex flex-col items-start justify-center pr-0 lg:pr-4"
           >
             
             {/* Professional Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-extrabold text-white tracking-tight leading-[1.14] mb-4 font-english">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-extrabold text-white tracking-tight leading-[1.15] mb-5 font-english">
               Construction Plant &amp; Machinery Specialist{' '}
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#1267D3] via-blue-400 to-[#E8B735] mt-1">
-                with P&amp;M Digitalization, Web &amp; Video Media
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#1267D3] via-blue-400 to-[#E8B735] mt-1.5">
+                with P&amp;M Digitalization &amp; Predictive Reliability
               </span>
             </h1>
 
             {/* Subtitle / Value Proposition */}
-            <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl mb-7">
-              Driving maximum fleet availability, predictive maintenance (PMS/RCA), turnkey plant erection, and digital transformation across <strong className="text-white font-semibold">Road Expressways, Metro Viaducts, Major Bridges</strong>, and Heavy Production Plants — combined with <strong className="text-amber-300 font-semibold">Website Design, 3D Graphics &amp; Video Production</strong>.
+            <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl mb-8">
+              Driving maximum fleet availability, predictive maintenance (PMS/RCA), turnkey plant erection, and digital transformation across <strong className="text-white font-semibold">Road Expressways, Metro Viaducts, Major Bridges, Flyovers</strong>, and Heavy Production Plants with advanced telematics and operational governance.
             </p>
 
-            {/* CTAs Button Cluster */}
-            <div className="w-full sm:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-7">
-              {/* Primary Call CTA */}
-              <a
-                href={`tel:${CONTACT_INFO.rawPhone}`}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white bg-[#1267D3] hover:bg-[#0e52aa] shadow-lg shadow-blue-600/30 hover:scale-[1.02] active:scale-95 transition-all text-sm group"
-                id="hero-btn-call"
-              >
-                <PhoneCall className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
-                <span>Call: {CONTACT_INFO.phone}</span>
-              </a>
-
-              {/* WhatsApp CTA */}
-              <a
-                href={CONTACT_INFO.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-slate-900 bg-emerald-400 hover:bg-emerald-300 shadow-md shadow-emerald-500/20 hover:scale-[1.02] active:scale-95 transition-all text-sm"
-                id="hero-btn-whatsapp"
-              >
-                <MessageCircle className="w-4 h-4 text-slate-900" />
-                <span>WhatsApp Chat</span>
-              </a>
-
-              {/* Design Studio Link CTA */}
-              <a
-                href="#design-studio"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-blue-200 bg-blue-900/40 hover:bg-blue-900/60 border border-blue-500/30 backdrop-blur-sm hover:scale-[1.02] active:scale-95 transition-all text-sm"
-              >
-                <Sparkles className="w-4 h-4 text-amber-300" />
-                <span>Design &amp; Video Studio</span>
-              </a>
-
-              {/* Download CV CTA */}
-              <button
-                type="button"
-                onClick={onOpenCvModal}
-                className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl font-semibold text-slate-200 bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-sm hover:scale-[1.02] active:scale-95 transition-all text-sm cursor-pointer"
-                id="hero-btn-cv"
-              >
-                <FileText className="w-4 h-4 text-amber-300" />
-                <span>Executive CV</span>
-              </button>
-            </div>
-
             {/* Core Domain Badges */}
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs font-semibold text-slate-400 mr-1">Core Mastery:</span>
-              {['Asphalt & WMM Plants', 'Crushers & Paving', 'PMS & RCA', 'SAP PM & ERP', 'Web & Video Studio', 'Power BI & AI'].map((pill) => (
-                <span
-                  key={pill}
-                  className="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800/80 text-slate-200 border border-slate-700/80 shadow-xs hover:border-blue-400/40 transition-colors"
-                >
-                  {pill}
-                </span>
-              ))}
+            <div className="w-full pt-4 border-t border-slate-800/80">
+              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2.5">
+                Technical Core Mastery:
+              </span>
+              <div className="flex flex-wrap items-center gap-2">
+                {[
+                  'Bridge & Flyover Girders',
+                  'Asphalt & WMM Plants',
+                  'Crushers & Sensor Pavers',
+                  'PMS & Root Cause Analysis',
+                  'SAP PM & ERP Telematics',
+                  'Power BI Plant Analytics',
+                ].map((pill) => (
+                  <span
+                    key={pill}
+                    className="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/90 text-slate-200 border border-slate-700/80 shadow-xs hover:border-blue-400/50 hover:text-white transition-all"
+                  >
+                    {pill}
+                  </span>
+                ))}
+              </div>
             </div>
 
           </motion.div>

@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, ChevronDown, Wrench, Sparkles } from 'lucide-react';
 import EngineeringLogo from './EngineeringLogo';
-import channelLogoImg from '../assets/images/channel_logo_1787592377456.jpg';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,8 +18,6 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Design & Video', href: '#design-studio' },
-    { name: 'Services', href: '#services' },
     { name: 'Machinery', href: '#machinery' },
     { name: 'Analytics', href: '#analytics' },
     { name: 'Digitalization', href: '#digitalization' },
@@ -30,6 +28,7 @@ export default function Navbar() {
 
   const handleNavClick = (href: string) => {
     setMobileMenuOpen(false);
+    setServicesDropdownOpen(false);
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -72,17 +71,117 @@ export default function Navbar() {
             </div>
           </a>
 
-          {/* Clean Desktop Navigation Menu */}
-          <nav className="hidden md:flex items-center gap-7" aria-label="Main Navigation">
-            {navLinks.map((link) => (
+          {/* Clean Desktop Navigation Menu (Selected Target Element) */}
+          <nav className="hidden md:flex items-center gap-5 lg:gap-6.5" aria-label="Main Navigation">
+            <a
+              href="#home"
+              className="text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#1267D3] transition-colors py-1 focus:outline-none"
+            >
+              Home
+            </a>
+            <a
+              href="#about"
+              className="text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#1267D3] transition-colors py-1 focus:outline-none"
+            >
+              About
+            </a>
+
+            {/* Services with Integrated Design & Video Dropdown */}
+            <div
+              className="relative group"
+              onMouseEnter={() => setServicesDropdownOpen(true)}
+              onMouseLeave={() => setServicesDropdownOpen(false)}
+            >
               <a
-                key={link.name}
-                href={link.href}
-                className="text-xs sm:text-sm font-semibold text-slate-600 hover:text-[#1267D3] transition-colors py-1 focus:outline-none"
+                href="#services"
+                className="inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#1267D3] transition-colors py-1 focus:outline-none"
               >
-                {link.name}
+                <span>Services &amp; Design</span>
+                <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#1267D3] transition-transform duration-200 group-hover:rotate-180" />
               </a>
-            ))}
+
+              {/* Dropdown Container */}
+              <div
+                className={`absolute top-full left-0 pt-2 w-72 z-50 transition-all duration-200 ${
+                  servicesDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible pointer-events-none -translate-y-1'
+                }`}
+              >
+                <div className="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                  <a
+                    href="#services"
+                    onClick={() => setServicesDropdownOpen(false)}
+                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1267D3] flex items-center justify-center shrink-0 mt-0.5 border border-blue-100">
+                      <Wrench className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-slate-900 group-hover/item:text-[#1267D3] transition-colors">
+                        P&amp;M Fleet Services
+                      </div>
+                      <div className="text-[11px] text-slate-500 leading-tight mt-0.5">
+                        Plant Erection, PMS, Spares &amp; SAP PM Governance
+                      </div>
+                    </div>
+                  </a>
+
+                  <a
+                    href="#design-studio"
+                    onClick={() => setServicesDropdownOpen(false)}
+                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 mt-0.5 border border-amber-100">
+                      <Sparkles className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-slate-900 group-hover/item:text-[#1267D3] transition-colors">
+                        Design &amp; Video Studio
+                      </div>
+                      <div className="text-[11px] text-slate-500 leading-tight mt-0.5">
+                        Technical Web, AI Graphics &amp; Video Production
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="#machinery"
+              className="text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#1267D3] transition-colors py-1 focus:outline-none"
+            >
+              Machinery
+            </a>
+            <a
+              href="#analytics"
+              className="text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#1267D3] transition-colors py-1 focus:outline-none"
+            >
+              Analytics
+            </a>
+            <a
+              href="#digitalization"
+              className="text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#1267D3] transition-colors py-1 focus:outline-none"
+            >
+              Digitalization
+            </a>
+            <a
+              href="#projects"
+              className="text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#1267D3] transition-colors py-1 focus:outline-none"
+            >
+              Projects
+            </a>
+            <a
+              href="#tools"
+              className="text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#1267D3] transition-colors py-1 focus:outline-none"
+            >
+              Tools &amp; AI
+            </a>
+            <a
+              href="#contact"
+              className="text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#1267D3] transition-colors py-1 focus:outline-none"
+            >
+              Contact
+            </a>
           </nav>
 
           {/* Simple Right CTA Button (No Contact Details in Header) */}
@@ -116,17 +215,94 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-b border-slate-200 px-4 py-4 shadow-xl animate-in slide-in-from-top duration-150">
           <div className="flex flex-col gap-1">
-            {navLinks.map((link) => (
+            <button
+              type="button"
+              onClick={() => handleNavClick('#home')}
+              className="w-full text-left px-3 py-2 text-sm font-semibold text-slate-800 hover:text-[#1267D3] hover:bg-slate-50 rounded-lg transition-colors flex items-center justify-between"
+            >
+              <span>Home</span>
+              <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+            </button>
+            <button
+              type="button"
+              onClick={() => handleNavClick('#about')}
+              className="w-full text-left px-3 py-2 text-sm font-semibold text-slate-800 hover:text-[#1267D3] hover:bg-slate-50 rounded-lg transition-colors flex items-center justify-between"
+            >
+              <span>About</span>
+              <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+            </button>
+
+            {/* Services with Sub-Items on Mobile */}
+            <div className="py-1 px-3 bg-slate-50 rounded-xl my-1 border border-slate-100">
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">
+                Services &amp; Design
+              </span>
               <button
-                key={link.name}
                 type="button"
-                onClick={() => handleNavClick(link.href)}
-                className="w-full text-left px-3 py-2.5 text-sm font-semibold text-slate-800 hover:text-[#1267D3] hover:bg-slate-50 rounded-lg transition-colors flex items-center justify-between"
+                onClick={() => handleNavClick('#services')}
+                className="w-full text-left py-1.5 text-sm font-semibold text-[#1267D3] flex items-center justify-between"
               >
-                <span>{link.name}</span>
-                <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+                <span>&bull; P&amp;M Fleet Services</span>
+                <ArrowRight className="w-3 h-3 text-[#1267D3]" />
               </button>
-            ))}
+              <button
+                type="button"
+                onClick={() => handleNavClick('#design-studio')}
+                className="w-full text-left py-1.5 text-sm font-semibold text-amber-700 flex items-center justify-between"
+              >
+                <span>&bull; Design &amp; Video Studio</span>
+                <ArrowRight className="w-3 h-3 text-amber-600" />
+              </button>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => handleNavClick('#machinery')}
+              className="w-full text-left px-3 py-2 text-sm font-semibold text-slate-800 hover:text-[#1267D3] hover:bg-slate-50 rounded-lg transition-colors flex items-center justify-between"
+            >
+              <span>Machinery</span>
+              <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+            </button>
+            <button
+              type="button"
+              onClick={() => handleNavClick('#analytics')}
+              className="w-full text-left px-3 py-2 text-sm font-semibold text-slate-800 hover:text-[#1267D3] hover:bg-slate-50 rounded-lg transition-colors flex items-center justify-between"
+            >
+              <span>Analytics</span>
+              <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+            </button>
+            <button
+              type="button"
+              onClick={() => handleNavClick('#digitalization')}
+              className="w-full text-left px-3 py-2 text-sm font-semibold text-slate-800 hover:text-[#1267D3] hover:bg-slate-50 rounded-lg transition-colors flex items-center justify-between"
+            >
+              <span>Digitalization</span>
+              <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+            </button>
+            <button
+              type="button"
+              onClick={() => handleNavClick('#projects')}
+              className="w-full text-left px-3 py-2 text-sm font-semibold text-slate-800 hover:text-[#1267D3] hover:bg-slate-50 rounded-lg transition-colors flex items-center justify-between"
+            >
+              <span>Projects</span>
+              <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+            </button>
+            <button
+              type="button"
+              onClick={() => handleNavClick('#tools')}
+              className="w-full text-left px-3 py-2 text-sm font-semibold text-slate-800 hover:text-[#1267D3] hover:bg-slate-50 rounded-lg transition-colors flex items-center justify-between"
+            >
+              <span>Tools &amp; AI</span>
+              <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+            </button>
+            <button
+              type="button"
+              onClick={() => handleNavClick('#contact')}
+              className="w-full text-left px-3 py-2 text-sm font-semibold text-slate-800 hover:text-[#1267D3] hover:bg-slate-50 rounded-lg transition-colors flex items-center justify-between"
+            >
+              <span>Contact</span>
+              <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+            </button>
 
             <div className="pt-2 mt-1 border-t border-slate-100">
               <a

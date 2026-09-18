@@ -48,7 +48,7 @@ export default function Services() {
             Specialized Professional Services
           </h2>
           <p className="text-base text-slate-600 leading-relaxed">
-            From heavy plant management and predictive reliability to custom website development, AI image graphics, and 4K technical video production.
+            From heavy plant management and predictive reliability to custom website development, graphic design, and technical video production.
           </p>
         </motion.div>
 

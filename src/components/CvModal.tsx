@@ -96,34 +96,102 @@ export default function CvModal({ isOpen, onClose }: CvModalProps) {
             Executive Career Summary
           </h3>
           <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-            Construction Plant &amp; Machinery specialist with 26+ years of field leadership across National Highways, Metro Rail Viaducts, Major Bridges, and heavy crushing plants. Proven track record in turnkey plant erection, commissioning, structured preventive maintenance schedules (PMS), chronic failure root cause analysis (RCA), spare parts cost control, and enterprise asset management using SAP PM and Power BI.
+            Construction Plant &amp; Machinery executive specialist with 26+ years of field leadership across National Highways &amp; Expressways, Metro Rail Viaducts, Major River Bridges, and High-Capacity Crushing Plants. Proven authority in turnkey plant erection, commissioning, structured preventive maintenance schedules (PMS), chronic failure root cause analysis (RCA), spare parts cost control, and enterprise asset management using SAP PM and Power BI. Available for <strong className="text-slate-900">Head of P&amp;M, AGM / GM, or Strategic Corporate Advisory</strong> roles.
           </p>
         </div>
 
-        {/* Core Expertise Grid */}
+        {/* Verified Career History & Roles */}
         <div className="mb-6">
-          <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2.5">
-            Key Competencies &amp; Operations
+          <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2.5 flex items-center justify-between">
+            <span>Verified Career History &amp; Leadership Roles</span>
+            <span className="text-[10px] text-blue-600 font-mono font-normal">Site &amp; Advisory Track Record</span>
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-800">
-            {ABOUT_HIGHLIGHTS.map((item, idx) => (
-              <div key={idx} className="flex items-center gap-1.5 p-2.5 rounded-xl bg-slate-50 border border-slate-200/80">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>{item}</span>
+          <div className="space-y-2 text-xs">
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+                <span className="font-bold text-slate-900">Head of P&amp;M &bull; Site Operations Lead</span>
+                <span className="text-[11px] font-semibold text-blue-700">National Highway &amp; Expressway EPCs</span>
               </div>
-            ))}
+              <p className="text-slate-600 text-[11px] leading-relaxed">
+                Turnkey erection, commissioning, and continuous 24x7 operation of Asphalt Batch Mix Plants (160–200 TPH), Wet Mix Macadam (WMM) plants, and sensor paver paving trains across high-tonnage MoRTH highway corridors with &gt;96% uptime.
+              </p>
+            </div>
+
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+                <span className="font-bold text-slate-900">Plant &amp; Heavy Machinery Lead</span>
+                <span className="text-[11px] font-semibold text-blue-700">Metro Rail Viaducts &amp; Deep Foundations</span>
+              </div>
+              <p className="text-slate-600 text-[11px] leading-relaxed">
+                Supervised hydraulic rotary piling rigs (Bauer BG series), heavy crawler cranes (75T–150T), and concrete pumping logistics in dense urban metro corridors with strict third-party lifting safety protocols.
+              </p>
+            </div>
+
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+                <span className="font-bold text-slate-900">Senior P&amp;M Specialist</span>
+                <span className="text-[11px] font-semibold text-blue-700">Major River Bridges &amp; Marine Piers</span>
+              </div>
+              <p className="text-slate-600 text-[11px] leading-relaxed">
+                Managed riverbed concrete batching plants, precast segment launching gantry cranes, vibratory piling hammers, and marine workboat machinery under high humidity and river flow challenges.
+              </p>
+            </div>
+
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+                <span className="font-bold text-slate-900">P&amp;M Strategic Corporate Advisor</span>
+                <span className="text-[11px] font-semibold text-blue-700">Head Office &amp; Multi-Project Governance</span>
+              </div>
+              <p className="text-slate-600 text-[11px] leading-relaxed">
+                Advising Project Directors and EPC leadership on capital fleet sizing, CapEx vs OpEx analysis, equipment lifecycle cost (LCC), and SAP PM / Power BI digital rollouts across 150+ fleet units.
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Technical Domain Knowledge */}
+        {/* Machine Fleet Handling Experience */}
         <div className="mb-6">
           <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2.5">
-            Heavy Equipment &amp; Plant Fleet Scope
+            Machine Fleet Handling Experience (150+ Heavy Equipment Units)
           </h3>
-          <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-700 space-y-1.5">
-            <p><strong>Production Plants:</strong> Asphalt Batch Mix (120–200 TPH), Wet Mix Macadam (WMM), Stone Crushers (Jaw/Cone), Concrete Batching &amp; RMC.</p>
-            <p><strong>Heavy Fleet:</strong> Hydraulic Excavators (Tata Hitachi, Komatsu, CAT, Volvo, Hyundai), Sensor Pavers, Motor Graders, Tandem/Soil Compactors, Piling Rigs (Bauer, Casagrande, Sany), Heavy Crawler Cranes.</p>
-            <p><strong>Digital Stack:</strong> SAP PM, SAP HANA, ERP Nway, Power BI, Advanced Excel (Power Query/ETL), AI Diagnostic Prompts, n8n/Zapier Automation.</p>
+          <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-700 space-y-2">
+            <div>
+              <strong className="text-slate-900">Production Plants:</strong> Asphalt Batch Mix Plants (120–200 TPH - Lintec, Apollo, Ammann, Parker), Wet Mix Macadam (WMM 200–250 TPH), Stone Crushers (150–200 TPH Jaw + Cone - Metso, Sandvik, Terex), Concrete Batching &amp; RMC (30–120 m³/hr - Schwing Stetter, Macons).
+            </div>
+            <div>
+              <strong className="text-slate-900">Paving &amp; Compaction:</strong> Hydrostatic Electronic Sensor Pavers (Vögele Super 1800-3, Dynapac SD2500, Apollo), Tandem Vibratory Rollers (9T–11T Hamm HD90, Dynapac CC384), Pneumatic Tired Rollers (PTR 15T–25T), Soil Compactors (Case 1107EX, JCB).
+            </div>
+            <div>
+              <strong className="text-slate-900">Foundation &amp; Lifting:</strong> Hydraulic Piling Rigs (Bauer BG28 / BG30, Casagrande, Sany SR285), Crawler Cranes (75T, 100T, 150T - Tata, Kobelco, Sany), Gantry Cranes, Vibratory Sheet Piling Hammers (PTC, ICE).
+            </div>
+            <div>
+              <strong className="text-slate-900">Heavy Earthmoving:</strong> Hydraulic Excavators (20T–35T Tata Hitachi EX200/ZX220, Komatsu PC210, CAT 320D, Volvo EC210), Motor Graders (140 HP CAT 140K, Liugong), Wheel Loaders (3T–5T CAT 950, SDLG).
+            </div>
+          </div>
+        </div>
+
+        {/* Software & Digital Credentials */}
+        <div className="mb-6">
+          <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2.5">
+            Software &amp; Digital Credentials
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <div className="p-2.5 rounded-xl bg-blue-50/60 border border-blue-200/80">
+              <strong className="text-blue-950 block mb-0.5">SAP PM &amp; S/4HANA:</strong>
+              <span className="text-slate-600 text-[11px]">Equipment Master, Functional Location, Notification &amp; Work Orders, PMS Schedules &amp; Spares Reservation.</span>
+            </div>
+            <div className="p-2.5 rounded-xl bg-amber-50/60 border border-amber-200/80">
+              <strong className="text-amber-950 block mb-0.5">Power BI Interactive Dashboards:</strong>
+              <span className="text-slate-600 text-[11px]">Fleet Availability %, MTBF/MTTR trends, specific fuel burn rates, and site-wise OpEx variance dashboards.</span>
+            </div>
+            <div className="p-2.5 rounded-xl bg-emerald-50/60 border border-emerald-200/80">
+              <strong className="text-emerald-950 block mb-0.5">ERP Nway &amp; Web ERPs:</strong>
+              <span className="text-slate-600 text-[11px]">Daily machinery hour-meter log capture, site fuel issue vouchers, inter-site machinery transfer gate passes.</span>
+            </div>
+            <div className="p-2.5 rounded-xl bg-purple-50/60 border border-purple-200/80">
+              <strong className="text-purple-950 block mb-0.5">Advanced Excel (Power Query ETL) &amp; AI:</strong>
+              <span className="text-slate-600 text-[11px]">Automated multi-workbook ETL pipelines, automated alert triggers via n8n/Zapier, AI diagnostic prompts.</span>
+            </div>
           </div>
         </div>
 
